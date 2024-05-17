@@ -1,0 +1,34 @@
+/* a Node of the doubly linked list 
+struct Node
+{
+  int data;
+  struct Node *next;
+  struct Node *prev;
+  Node(int x) { data = x; next = prev = NULL; }
+}; */
+
+//Function to insert a new node at given position in doubly linked list.
+void addNode(Node *head, int pos, int data)
+{
+   // Your code here
+   Node* temp=head;
+   while(pos!=0){
+       temp=temp->next;
+       pos--;
+   }
+   
+   Node* next=temp->next;
+   
+   Node* a= new Node(data);
+   
+   a->prev=temp;
+   temp->next=a;
+   
+   a->next=next;
+   if(next!=NULL){
+       next->prev=a;
+   }
+   
+   return;
+   
+}
